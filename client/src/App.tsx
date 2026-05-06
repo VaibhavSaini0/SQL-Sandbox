@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SqlSandboxLandingPage />} />
           <Route
-            path="/Dashboard"
+            path="/dashboard"
             element={
               <ProtectedRoute>
                 <Index />
