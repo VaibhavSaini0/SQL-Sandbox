@@ -5,12 +5,16 @@ import NotFound from "./pages/NotFound";
 import { Header } from "./components/Header";
 import SqlSandboxLandingPage from "./pages/landingpage";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { SignIn, SignUp } from "@clerk/clerk-react";
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <div className="min-h-screen flex flex-col">
         <Routes>
+          <Route path="/sign-in/*" element={<SignIn />} />
+
+<Route path="/sign-up/*" element={<SignUp />} />
           <Route path="/" element={<SqlSandboxLandingPage />} />
           <Route
             path="/dashboard"
