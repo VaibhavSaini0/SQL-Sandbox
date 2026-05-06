@@ -18,7 +18,7 @@ export default function SqlSandboxLandingPage() {
 
   function handleStart() {
     if (isSignedIn) {
-      navigate("/Dashboard");
+      navigate("/dashboard");
     }
   }
 
