@@ -120,6 +120,7 @@ export default function AssignmentAttempt() {
   // RUN QUERY ONLY
   // =========================
   async function handleRunQuery() {
+    setActiveBottomTab("results")
     if (!assignment || !query.trim()) return;
 
     setError(null);
@@ -165,6 +166,7 @@ export default function AssignmentAttempt() {
     setIsSubmittingQuery(true);
 
     try {
+      setActiveBottomTab("results");
       const res = await fetch(`${API_BASE}/execute-query`, {
         method: "POST",
         headers: {
