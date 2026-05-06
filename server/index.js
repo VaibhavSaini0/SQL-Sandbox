@@ -7,25 +7,54 @@ const connectMongo = require("./db/mongodb");
 const assignmentRoutes = require("./routes/assignments");
 const executeQueryRoutes = require("./routes/executeQuery");
 const trackerRoutes = require("./routes/tracker");
+
 const app = express();
 
-app.use(cors());
+// =========================
+// CORS
+// =========================
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://your-frontend-domain.vercel.app",
+    ],
+    credentials: true,
+  })
+);
+
+// =========================
+// Middleware
+// =========================
 app.use(express.json());
 
+// =========================
+// Database Connection
+// =========================
 connectMongo();
 
-
+// =========================
+// Health Route
+// =========================
 app.get("/", async (req, res) => {
-
   res.json({
-    staus:200,
-    message:"Server is running"
+    status: 200,
+    message: "SQL Sandbox Server Running",
   });
+});
 
-});app.use("/api/assignments", assignmentRoutes);
+// =========================
+// API Routes
+// =========================
+app.use("/api/assignments", assignmentRoutes);
 app.use("/api/execute-query", executeQueryRoutes);
 app.use("/api/tracker", trackerRoutes);
 
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
+// =========================
+// PORT
+// =========================
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
