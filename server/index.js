@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://sql-sandbox-plum.vercel.app/",
+      "https://sql-sandbox-plum.vercel.app",
     ],
     credentials: true,
   })
