@@ -8,7 +8,7 @@ import type { Assignment } from "../data/assignments";
 import { useUser } from "@clerk/clerk-react";
 import { SubmissionsPanel } from "../components/SubmissionsPanel";
 
-const API_BASE = "http://localhost:3001/api";
+const API_BASE = import.meta.env.VITE_API_BASE_URL;;
 
 export type resultType = {
   value: any[];
